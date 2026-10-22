@@ -50,6 +50,26 @@
   ];
   var repo = "https://github.com/Aamnaqureshi1";
 
+  /* ---------- Project cover art (relevant illustrations, works offline) ---------- */
+  var themes = { Web: ["#123a6b", "#3b7ddd"], Cloud: ["#0b4f5c", "#2fbfa8"], AI: ["#4a2a6b", "#f0a431"] };
+  var cloud = '<g fill="#fff"><circle cx="240" cy="230" r="42"/><circle cx="305" cy="212" r="56"/><circle cx="370" cy="234" r="38"/><rect x="240" y="232" width="130" height="40"/></g>';
+  var icons = {
+    portfolio: '<rect x="170" y="110" width="260" height="180" rx="12" fill="#fff" fill-opacity=".92"/><rect x="170" y="110" width="260" height="30" rx="12" fill="#fff"/><circle cx="190" cy="125" r="5" fill="#f0a431"/><circle cx="208" cy="125" r="5" fill="#2fbfa8"/><rect x="190" y="160" width="120" height="14" rx="4" fill="#123a6b"/><rect x="190" y="185" width="200" height="8" rx="4" fill="#9fb0c8"/><rect x="190" y="203" width="170" height="8" rx="4" fill="#9fb0c8"/><rect x="190" y="235" width="70" height="26" rx="6" fill="#f0a431"/>',
+    students: '<rect x="220" y="130" width="160" height="130" fill="#fff"/><ellipse cx="300" cy="260" rx="80" ry="22" fill="#fff"/><ellipse cx="300" cy="130" rx="80" ry="22" fill="#fff"/><path d="M220 175q80 40 160 0M220 215q80 40 160 0" stroke="#3b7ddd" stroke-width="5" fill="none"/>',
+    weather: '<circle cx="360" cy="150" r="44" fill="#f0a431"/>' + cloud,
+    docker: '<g fill="#fff"><rect x="190" y="190" width="50" height="40" rx="4"/><rect x="248" y="190" width="50" height="40" rx="4"/><rect x="306" y="190" width="50" height="40" rx="4"/><rect x="248" y="142" width="50" height="40" rx="4"/><rect x="306" y="142" width="50" height="40" rx="4"/></g><path d="M170 245h235c-20 40-80 62-150 52-45-7-72-26-85-52z" fill="#fff" fill-opacity=".92"/>',
+    pipeline: '<g fill="#fff"><circle cx="180" cy="200" r="34"/><circle cx="300" cy="200" r="34"/><circle cx="420" cy="200" r="34"/></g><path d="M218 200h44M338 200h44" stroke="#fff" stroke-width="8" stroke-linecap="round"/><path d="M405 200l12 12 22-26" stroke="#2fbfa8" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>',
+    storage: cloud + '<path d="M305 262v-58M283 226l22-22 22 22" stroke="#0b4f5c" stroke-width="9" fill="none" stroke-linecap="round" stroke-linejoin="round"/>',
+    mask: '<circle cx="300" cy="190" r="80" fill="#fff"/><circle cx="270" cy="165" r="9" fill="#4a2a6b"/><circle cx="330" cy="165" r="9" fill="#4a2a6b"/><rect x="245" y="195" width="110" height="55" rx="20" fill="#2fbfa8"/><path d="M245 212h-25M355 212h25" stroke="#fff" stroke-width="6"/><path d="M200 120v-30h30M400 120v-30h-30M200 260v30h30M400 260v30h-30" stroke="#f0a431" stroke-width="7" fill="none" stroke-linecap="round"/>',
+    spam: '<rect x="190" y="140" width="220" height="140" rx="12" fill="#fff"/><path d="M190 150l110 80 110-80" stroke="#4a2a6b" stroke-width="7" fill="none"/><circle cx="410" cy="140" r="30" fill="#e5484d"/><path d="M398 128l24 24M422 128l-24 24" stroke="#fff" stroke-width="6" stroke-linecap="round"/>',
+    chatbot: '<rect x="180" y="120" width="190" height="90" rx="22" fill="#fff"/><path d="M215 208l-5 37 40-37z" fill="#fff"/><g fill="#4a2a6b"><circle cx="240" cy="165" r="9"/><circle cx="275" cy="165" r="9"/><circle cx="310" cy="165" r="9"/></g><rect x="260" y="235" width="170" height="64" rx="22" fill="#f0a431"/>'
+  };
+  function cover(key, cat) {
+    var t = themes[cat] || themes.Web;
+    var svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="' + t[0] + '"/><stop offset="1" stop-color="' + t[1] + '"/></linearGradient></defs><rect width="600" height="400" fill="url(#g)"/><circle cx="520" cy="60" r="90" fill="#fff" fill-opacity=".08"/><circle cx="60" cy="360" r="110" fill="#fff" fill-opacity=".08"/>' + (icons[key] || "") + "</svg>";
+    return "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
+  }
+
   /* ---------- Skills ---------- */
   $("skillList").innerHTML = skills.map(function (s) {
     return "<li><strong>" + s[0] + "</strong>" + s[1] + '<div class="bar"><i data-w="' + s[2] + '"></i></div></li>';
@@ -63,7 +83,7 @@
   }).join("");
   function render(cat) {
     grid.innerHTML = projects.filter(function (p) { return cat === "All" || p[2] === cat; }).map(function (p) {
-      return '<article class="project tilt"><img src="https://picsum.photos/seed/' + p[4] + '/600/400" width="600" height="400" alt="Cover image for ' + p[0] + '" loading="lazy">' +
+      return '<article class="project tilt"><img src="' + cover(p[4], p[2]) + '" width="600" height="400" alt="Illustration for ' + p[0] + '" loading="lazy">' +
         '<div class="body"><h3>' + p[0] + "</h3><p>" + p[1] + '</p><ul class="tags">' +
         p[3].map(function (t) { return "<li>" + t + "</li>"; }).join("") +
         '</ul><a href="' + repo + '" target="_blank" rel="noopener">View on GitHub</a></div></article>';
