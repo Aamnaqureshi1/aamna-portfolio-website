@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aamna Qureshi | Computer Science Portfolio</title>
+  <meta name="description" content="3D portfolio of Aamna Qureshi, Computer Science student at COMSATS University Islamabad, Abbottabad Campus.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="bg3d" aria-hidden="true"></canvas>
+
+  <header class="site-header">
+    <a class="brand" href="#top">Aamna Qureshi</a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav id="nav" class="nav">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#journey">Journey</a>
+      <a href="#contact">Contact</a>
+      <button class="theme-btn" id="themeBtn" aria-label="Switch to light mode">Light mode</button>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <p class="hero-kicker">CSC418: DevOps for Cloud Computing</p>
+      <h1>I build things, ship them, and keep them running.</h1>
+      <p class="hero-text">I'm a Computer Science student at COMSATS University Islamabad, Abbottabad Campus, learning how code gets from my laptop to the cloud.</p>
+      <a class="btn" href="#projects">See my work</a>
+      <a class="btn ghost" href="#contact">Get in touch</a>
+      <pre class="terminal" aria-label="Git commands used to publish this site"><code>$ git init
+$ git add .
+$ git commit -m "Initial website commit"
+$ git push -u origin main</code></pre>
+    </section>
+
+    <section class="stats" aria-label="Quick facts">
+      <div><b data-count="9">0</b><span>Projects</span></div>
+      <div><b data-count="12">0</b><span>Technologies</span></div>
+      <div><b data-count="4">0</b><span>Semesters of study</span></div>
+      <div><b data-count="100">0</b><span>Commits and counting</span></div>
+    </section>
+
+    <section id="about" class="section">
+      <h2>About me</h2>
+      <div class="about">
+        <img class="portrait tilt" src="https://picsum.photos/seed/aamna-portrait/480/560" width="480" height="560" alt="Portrait placeholder. Replace with your photo." loading="lazy">
+        <div>
+          <p>I study Computer Science at COMSATS University Islamabad, Abbottabad Campus. I enjoy turning ideas into working software, and I use Git and GitHub to track every change along the way.</p>
+          <p>This site was drafted with an AI coding assistant and refined by hand, as part of Lab Assignment 01. Move your mouse over the page: the 3D shapes in the background follow it.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section">
+      <h2>Skills</h2>
+      <ul class="skills" id="skillList"></ul>
+    </section>
+
+    <section id="projects" class="section">
+      <h2>Projects</h2>
+      <div class="filters" id="filters" role="group" aria-label="Filter projects"></div>
+      <div class="project-grid" id="projectGrid"></div>
+    </section>
+
+    <section id="journey" class="section">
+      <h2>Journey</h2>
+      <ol class="timeline">
+        <li><time>2022</time><p>Joined COMSATS Abbottabad and wrote my first C++ program.</p></li>
+        <li><time>2023</time><p>Built my first website with HTML, CSS and JavaScript.</p></li>
+        <li><time>2024</time><p>Started using Git and GitHub for every project.</p></li>
+        <li><time>2025</time><p>Explored Linux, Docker and cloud basics.</p></li>
+        <li><time>2026</time><p>Published this portfolio in CSC418 Lab Assignment 01.</p></li>
+      </ol>
+    </section>
+
+    <section id="contact" class="section">
+      <h2>Contact</h2>
+      <p>Want to talk about a project or an internship? Send me an email.</p>
+      <p><a class="btn" href="mailto:aamnaqureshi987@gmail.com">aamnaqureshi987@gmail.com</a></p>
+      <p><a href="https://github.com/your-username" target="_blank" rel="noopener">github.com/aamnaqureshi1</a></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year">2026</span> Aamna Qureshi. Built with an AI assistant, Git and GitHub.</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
