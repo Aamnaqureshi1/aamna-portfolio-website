@@ -48,7 +48,7 @@
     ["Spam email classifier", "Sorts emails into spam and not spam.", "AI", ["Python", "scikit-learn"], "spam"],
     ["Study chatbot", "Answers common course questions.", "AI", ["Python", "NLP"], "chatbot"]
   ];
-  var repo = "https://github.com/your-username";
+  var repo = "https://github.com/Aamnaqureshi1";
 
   /* ---------- Skills ---------- */
   $("skillList").innerHTML = skills.map(function (s) {
